@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main %}
+
+    <form class="max-w-sm mx-auto">
+        <label for="years" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select buy_object</label>
+        <select size="{{ buy_objects|length }}" name="selected_object_id" onchange="this.form.submit()"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            {% for buy_object in buy_objects %}
+                <option {% if buy_object.id == selected_object.id %}selected{% endif %} value="{{ buy_object.id }}" >{{ buy_object.title }} - {{ buy_object.price }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <div class="w-full flex justify-center mt-4">
+    <a href="{% url 'payment:buy_object' selected_object.id %}" type="submit" class="text-center py-3 px-10 bg-blue-700 hover:bg-blue-800 rounded-lg">submit</a>
+    </div>
+
+{% endblock %}
