@@ -123,3 +123,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# zarinpal configs
+MERCHANT = '435e4f64-3445-44c4-84f2-aaa4abc15901'
+SANDBOX = True
